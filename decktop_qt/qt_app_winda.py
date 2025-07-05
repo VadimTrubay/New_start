@@ -104,9 +104,10 @@ class MainWindow(QWidget):
             return requests.get("https://api.ipify.org").text
         except:
             return "Ошибка запроса IP"
+
     def connect_to_server(self):
         LOCALAPPDATA = Path(os.getcwd())
-        file_path = LOCALAPPDATA / "client1.ovpn"
+        file_path = LOCALAPPDATA / "client2.ovpn"
         print(f"Используем конфиг: {file_path}")
 
         def task():
