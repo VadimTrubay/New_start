@@ -107,7 +107,7 @@ class MainWindow(QWidget):
     def connect_to_server(self):
         LOCALAPPDATA = Path(os.getcwd())
         print(LOCALAPPDATA)
-        file_path = LOCALAPPDATA / "client2.ovpn"
+        file_path = LOCALAPPDATA / "client1.ovpn"
         print(f"Используем конфиг: {file_path}")
 
         def task():
