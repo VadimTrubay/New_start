@@ -10,7 +10,7 @@ services:
     container_name: openvpn
     restart: always
     ports:
-      - "1194:1194/tcp"
+      - "1194:1194/udp"
     volumes:
       - ./openvpn-data:/etc/openvpn
     cap_add:
@@ -20,15 +20,15 @@ openvpn-data — це папка, в яку зберігатиметься ко�
 
 ## 🔧 Крок 2: Генерація базової конфігурації сервера
 ```bash
-  docker compose run --rm openvpn ovpn_genconfig -u tcp://VPN.SERVER.IP
+  docker compose run --rm openvpn ovpn_genconfig -u udp://VPN.SERVER.IP
 ```
 Що робить:
 Генерує базову конфігурацію VPN-сервера.
-Вказує, що клієнти підключатимуться через TCP на адресу VPN.SERVER.IP.
+Вказує, що клієнти підключатимуться через UDP на адресу VPN.SERVER.IP.
 Зберігає файли в openvpn-data.
 Пояснення:
 ovpn_genconfig — скрипт, який налаштовує /etc/openvpn/openvpn.conf.
--u tcp://... — каже: "слухай цей порт для підключень клієнтів".
+-u udp://... — каже: "слухай цей порт для підключень клієнтів".
 
 ## 🛡️ Крок 3: Ініціалізація PKI (сертифікатів)
 ```bash
